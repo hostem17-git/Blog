@@ -8,6 +8,9 @@ const contactContent = "Scelerisque eleifend donec pretium vulputate sapien. Rho
 
 const app = express();
 
+
+var posts=[];
+
 app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({
@@ -23,7 +26,8 @@ app.get("/", function(req, res) {
 
 app.get("/contact",function(req,res){
   res.render("contact",{
-    contactContent:contactContent
+    contactContent:contactContent,
+    posts:posts
   });
 })
 
@@ -41,7 +45,14 @@ app.get("/compose",function(req,res){
 })
 
 
+app.post("/",function(req,res){
 
+  const postObject = {
+    title : req.body.title ,
+    post : req.body.post
+  }
+  posts.push(postObject);
+})
 
 app.listen(3000, function() {
   console.log("Server started on port 3000");
