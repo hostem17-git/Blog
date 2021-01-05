@@ -20,14 +20,14 @@ app.use(express.static("public"));
 
 app.get("/", function(req, res) {
   res.render("home",{
-    homeStartingContent:homeStartingContent
+    homeStartingContent:homeStartingContent,
+    posts:posts
   });
 })
 
 app.get("/contact",function(req,res){
   res.render("contact",{
-    contactContent:contactContent,
-    posts:posts
+    contactContent:contactContent
   });
 })
 
@@ -49,9 +49,12 @@ app.post("/",function(req,res){
 
   const postObject = {
     title : req.body.title ,
-    post : req.body.post
+    post : req.body.Post
   }
   posts.push(postObject);
+
+  console.log(posts);
+  res.redirect("/");
 })
 
 app.listen(3000, function() {

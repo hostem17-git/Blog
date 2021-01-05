@@ -3,10 +3,8 @@
     padding-bottom: 70px;
 }
 
-.post{
-  display: inline-block;
-  width:100%;
-  margin-bottom: 10px;
+.postTitle{
+  text-decoration: underline;
 }
 .navbar {
     padding-top: 15px;
