@@ -49,7 +49,7 @@ app.post("/",function(req,res){
 
   const postObject = {
     title : req.body.title ,
-    post : req.body.Post
+    content : req.body.Post
   }
   posts.push(postObject);
 
